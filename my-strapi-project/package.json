@@ -1,0 +1,54 @@
+{
+  "name": "my-strapi-project",
+  "version": "0.1.0",
+  "private": true,
+  "description": "A Strapi application",
+  "scripts": {
+    "build": "strapi build",
+    "console": "strapi console",
+    "deploy": "strapi deploy",
+    "dev": "strapi develop",
+    "develop": "strapi develop",
+    "seed:example": "node ./scripts/seed.js",
+    "start": "strapi start",
+    "strapi": "strapi",
+    "upgrade": "npx @strapi/upgrade latest",
+    "upgrade:dry": "npx @strapi/upgrade latest --dry"
+  },
+  "dependencies": {
+    "@strapi/plugin-cloud": "5.33.1",
+    "@strapi/plugin-documentation": "^5.33.1",
+    "@strapi/plugin-users-permissions": "5.33.1",
+    "@strapi/sdk-plugin": "^5.4.0",
+    "@strapi/strapi": "5.33.1",
+    "@strapi/types": "^5.33.1",
+    "better-sqlite3": "12.4.1",
+    "esbuild": "^0.27.2",
+    "fs-extra": "^10.0.0",
+    "mime-types": "^2.1.27",
+    "mysql": "^2.18.1",
+    "mysql2": "^3.16.0",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "react-router-dom": "^6.0.0",
+    "strapi-plugin-auto-slug-manager-a-mi13": "^1.1.0",
+    "styled-components": "^6.0.0",
+    "yalc": "^1.0.0-pre.53"
+  },
+  "devDependencies": {
+    "@types/mysql": "^2",
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "typescript": "^5"
+  },
+  "engines": {
+    "node": ">=20.0.0 <=24.x.x",
+    "npm": ">=6.0.0"
+  },
+  "strapi": {
+    "uuid": "93e5b7a8-bca3-4e65-b0cf-a98cd6069916",
+    "installId": "e3bc3ae89183cb641daac3123c3500fc7f8295699157a97578b452adb967c0e9"
+  },
+  "packageManager": "yarn@4.12.0"
+}
