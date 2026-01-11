@@ -1,5 +1,5 @@
 import { MovieCard } from "./Card";
-import { Movie } from "@/shared/movie";
+import { Movie } from "@/types/movie";
 
 type Props = {
     movies: Movie[];

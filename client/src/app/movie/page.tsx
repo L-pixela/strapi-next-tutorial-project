@@ -1,6 +1,6 @@
-import { MovieList } from "../components/List";
-import { MovieTable } from "../components/Table";
-import { Movie } from "@/shared/movie";
+import { MovieList } from "../../components/ui/List";
+import { MovieTable } from "../../components/ui/Table";
+import { Movie } from "@/types/movie";
 
 const movieData: Movie[] = [
     {id: 1, title: "Inception", description: "A mind-bending thriller by Christopher Nolan."},
