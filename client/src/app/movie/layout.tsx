@@ -5,9 +5,6 @@ export default function MovieLayout({
 }>){
     return (
         <section>
-            <aside>
-                Movie Sidebar
-            </aside>
             {children}
         </section>
     )

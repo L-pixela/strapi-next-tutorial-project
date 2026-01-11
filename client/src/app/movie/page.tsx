@@ -1,11 +1,12 @@
-import { MovieList } from "../../components/ui/List";
-import { MovieTable } from "../../components/ui/Table";
+import { MovieList, MovieListTile } from "../../components/ui/List";
 import { Movie } from "@/types/movie";
 
 const movieData: Movie[] = [
     {id: 1, title: "Inception", description: "A mind-bending thriller by Christopher Nolan."},
     {id: 2, title: "The Matrix", description: "A sci-fi classic that questions reality."},
     {id: 3, title: "Interstellar", description: "A journey through space and time."},
+    {id: 4, title: "Interstellar", description: "A journey through space and time."},
+    {id: 5, title: "Interstellar", description: "A journey through space and time."},
 ]
 
 export default function MoviePage() {
@@ -16,7 +17,7 @@ export default function MoviePage() {
           This page displays a list of movies.
         </p>
         <MovieList movies={movieData} />
-        <MovieTable movies={movieData} />
+        <MovieListTile movies={movieData} />
     </div>
   );
 }
