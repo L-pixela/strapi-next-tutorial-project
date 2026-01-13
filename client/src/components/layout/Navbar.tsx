@@ -5,6 +5,7 @@ export default function NavBar(){
         <nav className="text-xl p-4 space-x-5 text-center">
             <Link href="/">Home</Link>
             <Link href="/movie">Movies</Link>
+            <Link href="/article">News</Link>
             <Link href="#">About</Link>
             <Link href="#">Support</Link>
         </nav>
