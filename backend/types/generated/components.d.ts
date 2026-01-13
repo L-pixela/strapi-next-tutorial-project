@@ -1,5 +1,56 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
+export interface BlocksHeroSection extends Struct.ComponentSchema {
+  collectionName: 'components_blocks_hero_sections';
+  info: {
+    displayName: 'Hero Section';
+  };
+  attributes: {
+    callToAction: Schema.Attribute.Component<'elements.link', false>;
+    image: Schema.Attribute.Media<'images'>;
+    theme: Schema.Attribute.Enumeration<['light', 'dark']>;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface BlocksInfoBlock extends Struct.ComponentSchema {
+  collectionName: 'components_blocks_info_blocks';
+  info: {
+    displayName: 'Info Block';
+  };
+  attributes: {
+    content: Schema.Attribute.Blocks;
+    cta: Schema.Attribute.Component<'elements.link', false>;
+    image: Schema.Attribute.Media<'images'>;
+    reversed: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    theme: Schema.Attribute.Enumeration<['light', 'dark']>;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface ElementsLink extends Struct.ComponentSchema {
+  collectionName: 'components_elements_links';
+  info: {
+    displayName: 'Link';
+  };
+  attributes: {
+    href: Schema.Attribute.String;
+    isExternal: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    text: Schema.Attribute.String;
+  };
+}
+
+export interface ElementsLogo extends Struct.ComponentSchema {
+  collectionName: 'components_elements_logos';
+  info: {
+    displayName: 'Logo';
+  };
+  attributes: {
+    image: Schema.Attribute.Media<'images'>;
+    logoText: Schema.Attribute.String;
+  };
+}
+
 export interface SharedMedia extends Struct.ComponentSchema {
   collectionName: 'components_shared_media';
   info: {
@@ -65,6 +116,10 @@ export interface SharedSlider extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'blocks.hero-section': BlocksHeroSection;
+      'blocks.info-block': BlocksInfoBlock;
+      'elements.link': ElementsLink;
+      'elements.logo': ElementsLogo;
       'shared.media': SharedMedia;
       'shared.quote': SharedQuote;
       'shared.rich-text': SharedRichText;

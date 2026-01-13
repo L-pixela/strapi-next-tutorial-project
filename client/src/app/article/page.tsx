@@ -3,7 +3,8 @@ import { ArticleRepository } from "@/repositories/article.repositoy";
 import { extractPlainText } from "@/lib/richtext";
 
 export default async function ArticlesPage() {
-  const articles = await ArticleRepository();
+  const repository = new ArticleRepository();
+  const articles = await repository.getAllArticles();
 
   return (
     <div className="flex flex-wrap">
