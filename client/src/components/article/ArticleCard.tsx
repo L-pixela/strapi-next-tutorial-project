@@ -2,6 +2,7 @@
 
 import { PrimaryButton, DangerButton } from "../ui/Button";
 import { useRouter } from "next/navigation";
+import { motion } from "framer-motion";
 
 type CardProps = {
     title: string;
@@ -22,7 +23,12 @@ export function ArticleCard({title, description, documentId}: CardProps){
     };
 
     return (
-        <div className="block max-w-sm p-6 m-5 bg-gray-900 rounded-lg border-b-4 border-green-400 shadow-sm hover:transition-transform hover:scale-105">
+        <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            whileHover={{ scale: 1.05, y: -5 }}
+            className="block max-w-sm p-6 m-5 bg-gray-900 rounded-lg border-b-4 border-green-400 shadow-sm">
           <h5 className="mb-4 text-2xl font-semibold tracking-tight leading-8 text-white">
             {title}
           </h5>
@@ -33,6 +39,6 @@ export function ArticleCard({title, description, documentId}: CardProps){
                 <PrimaryButton text="Learn More" action={handleLearnMore} />
                 <DangerButton text="Report" action={handleReport} />
             </div>
-        </div>
+        </motion.div>
     )
 }

@@ -1,6 +1,9 @@
+"use client";
+
 import {PrimaryButton, DangerButton} from "./Button";
 import { PortfolioProject } from "@/types/portfolio";
 import Link from "next/link";
+import { motion } from "framer-motion";
 
 type CardProps = {
     title: string;
@@ -9,7 +12,12 @@ type CardProps = {
 
 export function MovieCard({title, description}: CardProps) {
     return (
-        <div className="block max-w-sm p-6 m-5 bg-gray-900 rounded-lg border-b-4 border-green-400 shadow-sm hover:transition-transform hover:scale-105">
+        <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            whileHover={{ scale: 1.05, y: -5 }}
+            className="block max-w-sm p-6 m-5 bg-gray-900 rounded-lg border-b-4 border-green-400 shadow-sm">
           <h5 className="mb-4 text-2xl font-semibold tracking-tight leading-8 text-white">
             {title}
           </h5>
@@ -20,22 +28,32 @@ export function MovieCard({title, description}: CardProps) {
                 <PrimaryButton text="Learn More" />
                 <DangerButton text="Report" />
             </div>
-        </div>
+        </motion.div>
     )
 }
 
 export function CardTile({title, description}: CardProps) {
     return (
-        <div className="p-4 bg-gray-800 rounded-lg shadow-md border-l-4 border-green-400 hover:shadow-lg hover:transition-transform hover:scale-105">
+        <motion.div 
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.4 }}
+            whileHover={{ scale: 1.02, boxShadow: "0 10px 30px rgba(74, 222, 128, 0.2)" }}
+            className="p-4 bg-gray-800 rounded-lg shadow-md border-l-4 border-green-400">
             <h3 className="text-xl font-bold mb-2 text-white">{title}</h3>
             <p className="text-gray-300">{description}</p>
-        </div>
+        </motion.div>
     )
 }
 
 export function PortfolioCard({ project }: { project: PortfolioProject }) {
     return (
-        <div className="bg-gray-900 rounded-lg shadow-lg overflow-hidden border-b-4 border-green-400 hover:transition-transform hover:scale-105 hover:shadow-2xl">
+        <motion.div 
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5 }}
+            whileHover={{ scale: 1.05, y: -8 }}
+            className="bg-gray-900 rounded-lg shadow-lg overflow-hidden border-b-4 border-green-400">
             {project.imageUrl && (
                 <div className="h-48 bg-gray-800 flex items-center justify-center">
                     <span className="text-gray-500">Project Image</span>
@@ -60,17 +78,24 @@ export function PortfolioCard({ project }: { project: PortfolioProject }) {
                 {/* Technologies */}
                 <div className="flex flex-wrap gap-2 mb-4">
                     {project.technologies.map((tech, index) => (
-                        <span
+                        <motion.span
                             key={index}
+                            initial={{ opacity: 0, scale: 0 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            transition={{ delay: index * 0.1 }}
                             className="bg-gray-800 text-green-400 text-xs px-2 py-1 rounded border border-green-600"
                         >
                             {tech}
-                        </span>
+                        </motion.span>
                     ))}
                 </div>
 
                 {/* Action Buttons */}
-                <div className="flex gap-2">
+                <motion.div 
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 0.3 }}
+                    className="flex gap-2">
                     {project.demoUrl && (
                         <Link href={project.demoUrl} target="_blank">
                             <PrimaryButton text="Live Demo" />
@@ -81,9 +106,9 @@ export function PortfolioCard({ project }: { project: PortfolioProject }) {
                             <SecondaryButton text="View Code" />
                         </Link>
                     )}
-                </div>
+                </motion.div>
             </div>
-        </div>
+        </motion.div>
     );
 }
 
@@ -102,17 +127,26 @@ export function SkillCard({ name, level, category }: { name: string; level: stri
     };
 
     return (
-        <div className="bg-gray-800 p-4 rounded-lg border-l-4 border-green-400 hover:shadow-lg transition-shadow">
+        <motion.div 
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.4 }}
+            whileHover={{ scale: 1.03, boxShadow: "0 8px 20px rgba(74, 222, 128, 0.15)" }}
+            className="bg-gray-800 p-4 rounded-lg border-l-4 border-green-400">
             <div className="flex justify-between items-center">
                 <div>
                     <h4 className="text-white font-semibold">{name}</h4>
                     <p className="text-gray-400 text-xs">{category}</p>
                 </div>
-                <span className={`${getLevelColor(level)} text-white text-xs px-3 py-1 rounded-full`}>
+                <motion.span 
+                    initial={{ scale: 0 }}
+                    animate={{ scale: 1 }}
+                    transition={{ delay: 0.2, type: "spring" }}
+                    className={`${getLevelColor(level)} text-white text-xs px-3 py-1 rounded-full`}>
                     {level}
-                </span>
+                </motion.span>
             </div>
-        </div>
+        </motion.div>
     );
 }
 
